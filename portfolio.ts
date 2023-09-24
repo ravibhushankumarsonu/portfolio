@@ -160,13 +160,13 @@ export const feedbacks: FeedbackType[] = [
 ];
 
 // option to hide or show the ContactUs component
-export const showContactUs: boolean = true;
+export const showContactUs: boolean = false;
 
 // See object prototype on /types/section.ts page
 export const seoData: SEODataType = {
   title: 'Ravibhushan Kumar',
   description:
-    'A passionate Full Stack Web Developer and Blockchain Developer.',
+    'A passionate Full Software Developer.',
   author: 'Ravibhushan Kumar',
   image: 'https://avatars.githubusercontent.com/u/13804540?v=4',
   url: 'https://localhost.com',

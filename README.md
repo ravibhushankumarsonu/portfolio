@@ -1,46 +1,58 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+```
+node@v10.16.0 or higher
+npm@6.9.0 or higher
+git@2.17.1 or higher
+```
 
-In the project directory, you can run:
+## How To Use
 
-### `npm start`
+1. Fork this repoistory and clone it to your local machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+$ git clone https://github.com/<your-username>/developer-portfolio.git
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Go into the repository
 
-### `npm test`
+```bash
+$ cd developer-portfolio
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install dependencies
 
-### `npm run build`
+```bash
+$ yarn
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Edit `portfolio.js`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Start your development server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ yarn dev
+```
 
-### `npm run eject`
+## Linking Portfolio to Github
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```javascript
+  //  portfolio.js
+  githubUserName: 'YOUR GITHUB USERNAME HERE',
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Using Emojis
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For adding emoji 😃 into the texts in `Portfolio.js`, use the `emoji()` function and pass the text you need as an argument. This would help in keeping emojis compatible across different browsers and platforms.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+- [Next.js](https://nextjs.org/)
+- [axios](https://www.npmjs.com/package/axios)
+- [reactstrap](https://reactstrap.github.io/)
+- [react-reveal](https://www.react-reveal.com/)
+- [react-lottie](https://www.npmjs.com/package/react-lottie)
+- [react-easy-emoji](https://github.com/appfigures/react-easy-emoji)
+- [react-headroom](https://github.com/KyleAMathews/react-headroom)
+- [color-thief](https://github.com/lokesh/color-thief)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

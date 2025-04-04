@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file:///Users/ravibhushankumar/Desktop/projects/portfolio/pages/blog/index.tsx"],"sourcesContent":["import React from 'react';\n\nconst Blog = () => (\n  <main className=\"p-6\">\n    <h1 className=\"text-3xl font-bold\">My Blog</h1>\n    <p className=\"mt-4\">Stay tuned for articles on web development, photography tips, and travel stories.</p>\n  </main>\n);\n\nexport default Blog;"],"names":[],"mappings":";;;;;AAEA,MAAM,OAAO,kBACX,qKAAC;QAAK,WAAU;;0BACd,qKAAC;gBAAG,WAAU;0BAAqB;;;;;;0BACnC,qKAAC;gBAAE,WAAU;0BAAO;;;;;;;;;;;;uCAIT","debugId":null}}]
+}

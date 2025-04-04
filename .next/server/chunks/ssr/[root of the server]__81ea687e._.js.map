@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file:///Users/ravibhushankumar/Desktop/projects/portfolio/pages/index.tsx"],"sourcesContent":["import React from 'react';\n\nexport default function Home() {\n  return (\n    <main className=\"p-6\">\n      <h1 className=\"text-4xl font-bold\">Welcome to My Portfolio</h1>\n      <p className=\"mt-4\">Explore my work, blog, travel stories, and photography.</p>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEe,SAAS;IACtB,qBACE,qKAAC;QAAK,WAAU;;0BACd,qKAAC;gBAAG,WAAU;0BAAqB;;;;;;0BACnC,qKAAC;gBAAE,WAAU;0BAAO;;;;;;;;;;;;AAG1B","debugId":null}}]
+}

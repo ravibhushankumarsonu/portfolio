@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file:///Users/ravibhushankumar/Desktop/projects/portfolio/pages/about.tsx"],"sourcesContent":["import React from \"react\";\n\nconst About = () => (\n  <main className=\"p-6\">\n    <h1 className=\"text-3xl font-bold\">About Me</h1>\n    <p className=\"mt-4\">\n      I'm a senior software developer and photographer based in [Your City]. I build modern web apps and capture the world through my lens.\n    </p>\n  </main>\n);\n\nexport default About;\n"],"names":[],"mappings":";;;;;AAEA,MAAM,QAAQ,kBACZ,qKAAC;QAAK,WAAU;;0BACd,qKAAC;gBAAG,WAAU;0BAAqB;;;;;;0BACnC,qKAAC;gBAAE,WAAU;0BAAO;;;;;;;;;;;;uCAMT","debugId":null}}]
+}

@@ -468,11 +468,16 @@ function triggerUpdate(msg) {
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": (()=>__TURBOPACK__default__export__)
+    "__N_SSG": (()=>__N_SSG),
+    "default": (()=>Blog)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [client] (ecmascript)");
 ;
-const Blog = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+;
+var __N_SSG = true;
+function Blog({ posts }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "p-6",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -480,25 +485,49 @@ const Blog = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d
                 children: "My Blog"
             }, void 0, false, {
                 fileName: "[project]/pages/blog/index.tsx",
-                lineNumber: 5,
-                columnNumber: 5
+                lineNumber: 8,
+                columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "mt-4",
-                children: "Stay tuned for articles on web development, photography tips, and travel stories."
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                className: "mt-4 space-y-2",
+                children: posts.map((post)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: `/blog/${post.slug}`,
+                                className: "text-blue-600 hover:underline",
+                                children: post.title
+                            }, void 0, false, {
+                                fileName: "[project]/pages/blog/index.tsx",
+                                lineNumber: 12,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-500",
+                                children: post.date
+                            }, void 0, false, {
+                                fileName: "[project]/pages/blog/index.tsx",
+                                lineNumber: 15,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, post.slug, true, {
+                        fileName: "[project]/pages/blog/index.tsx",
+                        lineNumber: 11,
+                        columnNumber: 11
+                    }, this))
             }, void 0, false, {
                 fileName: "[project]/pages/blog/index.tsx",
-                lineNumber: 6,
-                columnNumber: 5
+                lineNumber: 9,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/blog/index.tsx",
-        lineNumber: 4,
-        columnNumber: 3
+        lineNumber: 7,
+        columnNumber: 5
     }, this);
+}
 _c = Blog;
-const __TURBOPACK__default__export__ = Blog;
 var _c;
 __turbopack_context__.k.register(_c, "Blog");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

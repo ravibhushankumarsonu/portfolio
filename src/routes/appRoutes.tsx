@@ -1,9 +1,9 @@
 import type { FC } from 'react'
 import MainLayout from '../layouts/main/MainLayout'
-import HomePage from '../pages/HomePage'
-import AboutPage from '../pages/AboutPage'
-import ProjectsPage from '../pages/ProjectsPage'
-import ContactPage from '../pages/ContactPage'
+import HomePage from '../pages/home/HomePage'
+import AboutPage from '../pages/about/AboutPage'
+import ProjectsPage from '../pages/projects/ProjectsPage'
+import ContactPage from '../pages/contact/ContactPage'
 
 // For now this is a simple manual router placeholder.
 // Later you can swap this for react-router or another router.

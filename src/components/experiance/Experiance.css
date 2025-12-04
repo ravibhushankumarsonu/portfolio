@@ -1,0 +1,88 @@
+.experience-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.experience-container h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.experience-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-item {
+    display: flex; /* Use flexbox for layout */
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 40px;
+    max-width: 800px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Align text within item to the left */
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.experience-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.experience-company {
+    font-size: 1.1rem;
+    color: #007bff;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+}
+
+.experience-date {
+    flex: 0 0 150px; /* Fixed width for date column */
+    font-weight: bold;
+    color: #555;
+    margin-right: 30px;
+    padding-top: 5px; /* Align with title */
+}
+
+.experience-description {
+    flex: 1; /* Take remaining space */
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.skill-tag {
+    background: #e7f3ff;
+    color: #007bff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}

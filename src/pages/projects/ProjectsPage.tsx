@@ -1,6 +1,6 @@
 import type { FC } from 'react'
-import ProjectCarousel from '../components/projects/ProjectCarousel'
-import useProjects from '../hooks/useProjects'
+import ProjectCarousel from '../../components/projects/ProjectCarousel'
+import useProjects from '../../hooks/useProjects'
 
 const ProjectsPage: FC = () => {
   const { projects, loading, error } = useProjects({ limit: 10 })

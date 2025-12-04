@@ -1,0 +1,35 @@
+[
+  {
+    "id": "proj-1",
+    "title": "Realtime Dashboard",
+    "description": "Realtime analytics dashboard with streaming charts and alerts.",
+    "thumbnail": "/assets/project-dashboard.png",
+    "url": "https://example.com/dashboard",
+    "repo": "https://github.com/your-username/realtime-dashboard",
+    "tags": ["React", "WebSocket", "D3"],
+    "featured": true,
+    "year": 2024
+  },
+  {
+    "id": "proj-2",
+    "title": "Batch Processing Platform",
+    "description": "ETL pipelines built on top of a distributed processing framework.",
+    "thumbnail": "/assets/project-etl.png",
+    "url": "https://example.com/etl",
+    "repo": "https://github.com/your-username/batch-etl",
+    "tags": ["Node.js", "Big Data"],
+    "featured": false,
+    "year": 2023
+  },
+  {
+    "id": "proj-3",
+    "title": "Open Source Library",
+    "description": "A small, well-documented library solving a common problem.",
+    "thumbnail": "/assets/project-lib.png",
+    "url": "https://example.com/library",
+    "repo": "https://github.com/your-username/oss-lib",
+    "tags": ["TypeScript", "Library"],
+    "featured": false,
+    "year": 2022
+  }
+]

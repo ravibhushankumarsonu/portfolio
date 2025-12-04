@@ -13,7 +13,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
       </header>
       <main className="app-main">{children}</main>
       <footer className="app-footer">
-        <small>&copy; {new Date().getFullYear()} Your Name</small>
+        <small>&copy; {new Date().getFullYear()} Ravibhushan Kumar</small>
       </footer>
     </div>
   )

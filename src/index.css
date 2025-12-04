@@ -112,3 +112,83 @@ button:focus-visible {
 body {
   padding-top: var(--navbar-height);
 }
+
+/* About page styles */
+.about-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #646cff 0%, #7dd3fc 100%);
+  flex: 0 0 84px;
+}
+
+.about-section h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.skill-pill {
+  background: rgba(255,255,255,0.06);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .skill-pill {
+    background: rgba(0,0,0,0.06);
+  }
+}
+
+/* Projects carousel styles */
+.project-carousel {
+  position: relative;
+  margin-top: 1.25rem;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 300ms ease;
+}
+.carousel-item {
+  min-width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.project-card {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  background: rgba(255,255,255,0.02);
+  padding: 1rem;
+  border-radius: 8px;
+}
+.project-thumb {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.project-body h3 { margin: 0 0 0.25rem 0 }
+.project-desc { margin: 0 0 0.5rem 0; color: var(--muted, #9ca3af) }
+.tag { display: inline-block; margin-right: 0.5rem; font-size: 0.85rem; color: var(--muted, #9ca3af) }
+.project-links a { margin-right: 0.5rem }
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.carousel-btn.prev { left: 8px }
+.carousel-btn.next { right: 8px }
+.carousel-dots { text-align: center; margin-top: 0.75rem }
+.carousel-dots .dot {
+  width: 10px; height: 10px; border-radius: 50%; margin: 0 6px; display: inline-block; border: none; background: rgba(255,255,255,0.12); cursor: pointer;
+}
+.carousel-dots .dot.active { background: #646cff }
+

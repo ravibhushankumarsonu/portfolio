@@ -16,34 +16,33 @@ const Experiance: FC = () => {
             title: 'Senior Software Engineer',
             company: 'Tech Company Inc.',
             description: 'Led development of scalable microservices architecture using TypeScript and Node.js. Mentored junior developers and improved code quality by implementing best practices.',
-            skills: ['TypeScript', 'Node.js', 'Microservices', 'Mentoring'],
+            skills: ['TypeScript', 'Node.js', 'Microservices', 'Leadership'],
         },
         {
             year: '2021 - 2023',
             title: 'Full Stack Developer',
             company: 'Digital Solutions Ltd.',
             description: 'Built and maintained React applications with TypeScript. Developed RESTful APIs using Node.js and Express. Collaborated with cross-functional teams.',
-            skills: ['TypeScript', 'Node.js', 'Microservices', 'Mentoring'],
+            skills: ['React', 'TypeScript', 'Node.js', 'Express'],
         },
         {
             year: '2019 - 2021',
             title: 'Junior Developer',
             company: 'StartUp Co.',
             description: 'Developed web applications using React and JavaScript. Fixed bugs and optimized application performance. Participated in code reviews.',
-            skills: ['TypeScript', 'Node.js', 'Microservices', 'Mentoring'],
+            skills: ['React', 'JavaScript', 'Performance Optimization', 'Code Reviews'],
         },
     ];
 
     return (
         <section className="experience-container">
             <h2>Work Experience</h2>
-            <div className="experience-list">
+            <ul className="experience-list">
                 {experiences.map((exp, index) => (
-                    <div key={index} className="experience-item">
-                        <div className="experience-title"></div>
+                    <li key={index} className="experience-item">
+                        <time className="experience-date">{exp.year}</time>
                         <div className="timeline-content">
-                            <span className="experience-date">{exp.year}</span>
-                            <h2>{exp.title}</h2>
+                            <h3>{exp.title}</h3>
                             <p className="experience-company">{exp.company}</p>
                             <p className="experience-description">{exp.description}</p>
                             <div className="experience-skills">
@@ -52,9 +51,9 @@ const Experiance: FC = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 };

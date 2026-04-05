@@ -1,5 +1,54 @@
 # React + TypeScript + Vite
 
+## Local Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the development server:
+
+```bash
+npm run dev
+```
+
+3. Open the app in your browser:
+
+- Visit `http://localhost:5173`
+
+## Build & Preview
+
+- Create a production build:
+
+```bash
+npm run build
+```
+
+- Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+- `src/`
+  - `assets/` — static images and media
+  - `components/` — reusable UI components
+  - `data/` — local data files such as `projects.json`
+  - `hooks/` — custom React hooks
+  - `layouts/` — layout components and wrappers
+  - `pages/` — page-level views for the app
+  - `routes/` — route definitions and navigation setup
+  - `services/` — API client and service utilities
+  - `types/` — TypeScript interface/type definitions
+- `public/` — static public assets served by Vite
+- `package.json` — npm scripts and dependencies
+- `tsconfig.*.json` — TypeScript configuration files
+- `vite.config.ts` — Vite build and dev server config
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

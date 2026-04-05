@@ -2,7 +2,6 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
-    background-color: #f9f9f9;
 }
 
 .experience-container h2 {
@@ -10,79 +9,146 @@
     font-weight: bold;
     margin-bottom: 40px;
     text-align: center;
-    color: #333;
-}
-
-.experience-header {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    text-align: center;
-    color: #333;
+    color: rgba(255, 255, 255, 0.87);
 }
 
 .experience-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 
 .experience-item {
-    display: flex; /* Use flexbox for layout */
-    align-items: flex-start; /* Align items to the top */
-    margin-bottom: 40px;
-    max-width: 800px; /* Limit width for readability */
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left; /* Align text within item to the left */
-}
-
-.experience-item:last-child {
-    margin-bottom: 0;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease;
 }
 
 .experience-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.experience-title {
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #646cff, #7dd3fc);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.1);
+}
+
+.experience-item::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 24px;
+    width: 2px;
+    height: calc(100% + 1rem);
+    background: linear-gradient(180deg, #646cff, transparent);
+}
+
+.experience-item:last-child::after {
+    display: none;
+}
+
+.experience-date {
+    display: block;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 8px 0;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
-    margin: 0 0 8px 0;
+    color: rgba(255, 255, 255, 0.87);
 }
 
 .experience-company {
     font-size: 1.1rem;
-    color: #007bff;
+    color: #646cff;
     font-weight: 500;
     margin: 0 0 4px 0;
 }
 
-.experience-date {
-    flex: 0 0 150px; /* Fixed width for date column */
-    font-weight: bold;
-    color: #555;
-    margin-right: 30px;
-    padding-top: 5px; /* Align with title */
-}
-
 .experience-description {
-    flex: 1; /* Take remaining space */
+    margin: 0 0 12px 0;
+    color: rgba(255, 255, 255, 0.87);
 }
 
 .experience-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 12px;
 }
 
-.skill-tag {
-    background: #e7f3ff;
-    color: #007bff;
+.skill-badge {
+    background: rgba(100, 108, 255, 0.1);
+    color: #646cff;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
+    border: 1px solid rgba(100, 108, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+    background: rgba(100, 108, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: light) {
+    .experience-container h2,
+    .timeline-content h3,
+    .experience-description {
+        color: #333;
+    }
+
+    .experience-date {
+        color: #555;
+    }
+
+    .skill-badge {
+        background: rgba(100, 108, 255, 0.1);
+        color: #646cff;
+        border-color: rgba(100, 108, 255, 0.2);
+    }
+
+    .skill-badge:hover {
+        background: rgba(100, 108, 255, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 20px 16px;
+    }
+
+    .experience-container h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .experience-item {
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .experience-item::before {
+        width: 12px;
+        height: 12px;
+        left: -6px;
+    }
+
+    .experience-item::after {
+        left: 0px;
+        top: 18px;
+        height: calc(100% + 0.5rem);
+    }
 }

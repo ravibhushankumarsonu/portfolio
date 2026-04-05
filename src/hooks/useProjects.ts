@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { Project } from '../types/project'
+import projectsData from '../data/projects.json'
 
 type UseProjectsOptions = {
   featuredOnly?: boolean
@@ -17,10 +18,7 @@ export function useProjects(options?: UseProjectsOptions) {
     async function load() {
       setLoading(true)
       try {
-        const res = await fetch('/src/data/projects.json')
-        if (!res.ok) throw new Error(`Failed to load projects: ${res.status}`)
-        const json: Project[] = await res.json()
-        if (!cancelled) setData(json)
+        if (!cancelled) setData(projectsData)
       } catch (err: any) {
         if (!cancelled) setError(err?.message ?? String(err))
       } finally {

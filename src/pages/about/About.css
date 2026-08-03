@@ -1,57 +1,68 @@
 .about-page {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 4rem 1.5rem 5rem;
+  padding: var(--space-12) var(--gutter) var(--space-20);
 }
+
 .about-header {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
 }
+
 .about-avatar {
+  flex: 0 0 84px;
   width: 84px;
   height: 84px;
-  border-radius: var(--radius);
   object-fit: cover;
-  flex: 0 0 84px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
 }
-.about-header p {
-  color: var(--muted);
-  margin-top: 0.5rem;
+
+.about-intro {
   max-width: 62ch;
+  margin-top: var(--space-2);
+  color: var(--color-muted);
 }
+
 .about-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  gap: var(--space-12);
 }
+
 .about-section {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
 }
+
 .about-section h2 {
+  margin-bottom: var(--space-4);
   font-size: 1.15rem;
-  margin-bottom: 1rem;
 }
+
 .about-entry {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-5);
 }
+
 .about-entry h3 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--text-lg);
 }
-.about-entry .company { color: var(--accent-dark); font-weight: 600; }
-.about-entry .period { color: var(--muted); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
-.about-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+
+.about-entry .company {
+  color: var(--color-accent-strong);
+  font-weight: var(--weight-semibold);
+}
+
+.about-entry .period {
+  margin: 0.15rem 0 0.4rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 720px) {
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }

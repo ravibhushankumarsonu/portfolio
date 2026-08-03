@@ -1,70 +1,98 @@
 import type { FC } from 'react'
 import './About.css'
-import { experience, skills } from '../../data/experience'
+import ContentBoundary from '../../components/ui/ContentBoundary'
+import Markdown from '../../components/ui/Markdown'
+import { renderInline } from '../../content/loader'
+import { useAboutContent, useExperience, useSite, useUi } from '../../hooks/useContent'
 
+/**
+ * Container: reads content and hands it to presentational components.
+ * Every visible string originates in src/content/pages/about.md.
+ */
 const AboutPage: FC = () => {
-  const intro =
-    "I'm an experienced software engineer with 7.5+ years designing and building " +
-    'high-performance systems — system design, distributed systems, microservices, ' +
-    'big-data pipelines, and CI/CD automation. Outside of engineering, I pursue ' +
-    'photography and content creation.'
+  const about = useAboutContent()
+  const experience = useExperience()
+  const site = useSite().data?.meta
+  const ui = useUi().data?.meta
 
   return (
-    <section className="about-page">
-      <header className="about-header">
-        <img src="/logo.jpg" alt="Ravibhushan Kumar" className="about-avatar" />
-        <div>
-          <h1>About</h1>
-          <p>{intro}</p>
-        </div>
-      </header>
+    <ContentBoundary state={about} loadingLabel={ui?.loading}>
+      {(doc) => {
+        const meta = doc.meta
 
-      <div className="about-grid">
-        <div>
-          <section className="about-section">
-            <h2>Experience</h2>
-            {experience.map((e) => (
-              <article className="about-entry" key={`${e.role}-${e.company}`}>
-                <h3>
-                  {e.role} <span className="company">— {e.company}</span>
-                </h3>
-                <p className="period">
-                  {e.period}
-                  {e.location ? ` · ${e.location}` : ''}
-                </p>
-                <p>{e.description}</p>
-              </article>
-            ))}
-          </section>
+        return (
+          <section className="about-page">
+            <header className="about-header">
+              {site && <img src={site.avatar} alt={site.name} className="about-avatar" />}
+              <div>
+                <h1>{meta.heading}</h1>
+                <Markdown html={doc.html} className="about-intro prose" />
+              </div>
+            </header>
 
-          <section className="about-section">
-            <h2>Education</h2>
-            {/* TODO: replace with your real degree/university/years */}
-            <p className="muted">B.S. in Computer Science — Your University (2016 — 2020)</p>
-          </section>
-        </div>
+            <div className="about-grid">
+              <div>
+                <section className="about-section">
+                  <h2>{meta.experienceHeading}</h2>
+                  <ContentBoundary state={experience} loadingLabel={ui?.loading}>
+                    {(entries) => (
+                      <>
+                        {entries.map((entry) => (
+                          <article className="about-entry" key={entry.slug}>
+                            <h3>
+                              {entry.meta.role}{' '}
+                              <span className="company">— {entry.meta.company}</span>
+                            </h3>
+                            <p className="period">
+                              {entry.meta.period}
+                              {entry.meta.location ? ` · ${entry.meta.location}` : ''}
+                            </p>
+                            <Markdown html={entry.html} className="prose" />
+                          </article>
+                        ))}
+                      </>
+                    )}
+                  </ContentBoundary>
+                </section>
 
-        <aside>
-          <section className="about-section">
-            <h2>Skills</h2>
-            <ul className="about-skills">
-              {skills.map((s) => (
-                <li key={s} className="skill-pill">
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </section>
+                <section className="about-section">
+                  <h2>{meta.educationHeading}</h2>
+                  {meta.education.map((entry) => (
+                    <p className="muted" key={`${entry.degree}-${entry.institution}`}>
+                      {entry.degree} — {entry.institution} ({entry.period})
+                      {entry.detail ? ` · ${entry.detail}` : ''}
+                    </p>
+                  ))}
+                </section>
+              </div>
 
-          <section className="about-section">
-            <h2>Contact</h2>
-            <p className="muted">
-              See the <a href="/contact">Contact</a> page for details.
-            </p>
+              <aside>
+                <section className="about-section">
+                  <h2>{meta.skillsHeading}</h2>
+                  <ul className="pill-list">
+                    {meta.skills.map((skill) => (
+                      <li key={skill} className="pill pill-lg">
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section className="about-section">
+                  <h2>{meta.contactHeading}</h2>
+                  {/* contactNote may contain an inline markdown link */}
+                  <Markdown
+                    as="p"
+                    className="muted"
+                    html={renderInline(meta.contactNote)}
+                  />
+                </section>
+              </aside>
+            </div>
           </section>
-        </aside>
-      </div>
-    </section>
+        )
+      }}
+    </ContentBoundary>
   )
 }
 

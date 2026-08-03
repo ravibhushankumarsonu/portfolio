@@ -1,0 +1,11 @@
+.projects-page {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+}
+
+.projects-intro {
+  max-width: 60ch;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-8);
+  color: var(--color-muted);
+}

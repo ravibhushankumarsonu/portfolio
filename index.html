@@ -1,20 +1,25 @@
 <!doctype html>
-<html lang="en">
+<!--
+  Values below marked %SEO_*% are injected at build time from
+  src/content/seo.md by the contentHtml plugin in vite.config.ts.
+  Edit the content file, not this one.
+-->
+<html lang="%SEO_LANG%">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="%SEO_IMAGE%" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#10b981" />
-    <title>Ravibhushan Kumar — Staff Software Engineer</title>
-    <meta name="description" content="Ravibhushan Kumar is a staff software engineer based in Bangalore, India, building high-performance, user-focused applications. Explore projects, experience, and ways to connect." />
-    <meta name="keywords" content="Ravibhushan Kumar, Software Engineer, Staff Engineer, Bangalore, Portfolio, Flipkart, System Design, Distributed Systems" />
-    <meta property="og:title" content="Ravibhushan Kumar — Staff Software Engineer" />
-    <meta property="og:description" content="Staff software engineer building high-performance, user-focused applications. Projects, experience, and contact." />
+    <meta name="theme-color" content="%SEO_THEME_COLOR%" />
+    <title>%SEO_TITLE%</title>
+    <meta name="description" content="%SEO_DESCRIPTION%" />
+    <meta name="keywords" content="%SEO_KEYWORDS%" />
+    <meta property="og:title" content="%SEO_OG_TITLE%" />
+    <meta property="og:description" content="%SEO_OG_DESCRIPTION%" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/logo.jpg" />
+    <meta property="og:image" content="%SEO_IMAGE%" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ravibhushan Kumar — Staff Software Engineer" />
-    <meta name="twitter:description" content="Staff software engineer building high-performance, user-focused applications." />
+    <meta name="twitter:title" content="%SEO_TWITTER_TITLE%" />
+    <meta name="twitter:description" content="%SEO_TWITTER_DESCRIPTION%" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

@@ -1,0 +1,57 @@
+.about-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.about-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  flex: 0 0 84px;
+  border: 1px solid var(--border);
+}
+.about-header p {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  max-width: 62ch;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+.about-section {
+  margin-bottom: 2rem;
+}
+.about-section h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+.about-entry {
+  margin-bottom: 1.25rem;
+}
+.about-entry h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.about-entry .company { color: var(--accent-dark); font-weight: 600; }
+.about-entry .period { color: var(--muted); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; }
+}

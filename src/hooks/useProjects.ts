@@ -19,8 +19,8 @@ export function useProjects(options?: UseProjectsOptions) {
       setLoading(true)
       try {
         if (!cancelled) setData(projectsData)
-      } catch (err: any) {
-        if (!cancelled) setError(err?.message ?? String(err))
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : String(err))
       } finally {
         if (!cancelled) setLoading(false)
       }

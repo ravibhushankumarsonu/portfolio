@@ -1,122 +1,47 @@
-# React + TypeScript + Vite
+# Ravibhushan Kumar — Portfolio
 
-## Local Setup
+Personal portfolio site: staff software engineer profile with projects, experience,
+and contact info recruiters and collaborators can reach in one click. Built as
+Phase 1 of a two-phase plan (Phase 2 adds a separate photography section later —
+see `portfolio-design-document.md` in the planning docs).
 
-1. Install dependencies:
+## Stack
+
+- React 19 + TypeScript + Vite (static build, no server needed)
+- Plain CSS with a small design-token system in `src/index.css`
+- Content-as-code: projects live in `src/data/projects.json`, experience in
+  `src/data/experience.ts`, contact info in `src/data/site.ts`
+
+## Local setup
 
 ```bash
 npm install
+npm run dev       # http://localhost:5173
+npm run build     # production build -> dist/
+npm run preview   # preview the production build
 ```
 
-2. Start the development server:
+## Deployment (Cloudflare Pages, recommended)
 
-```bash
-npm run dev
-```
+1. Push this repo to GitHub (already done: `ravibhushankumarsonu/portfolio`).
+2. In the Cloudflare dashboard: Workers & Pages → Create → Pages → Connect to Git → select this repo.
+3. Production branch: `main`. Build command: `npm run build`. Build output directory: `dist`.
+4. Every merge to `main` auto-deploys; every pull request gets its own preview URL — no extra YAML needed for deploys (`.github/workflows/ci.yml` just runs lint + build checks on PRs).
+5. Domain: if using an existing GoDaddy domain, delegate DNS to Cloudflare (change nameservers in GoDaddy's panel to the ones Cloudflare gives you), then add the domain as a custom domain on the Pages project.
 
-3. Open the app in your browser:
+## TODO before publishing
 
-- Visit `http://localhost:5173`
+- [ ] Drop your real résumé as `public/resume.pdf` (the "Résumé" button already links there).
+- [ ] Replace the sample entries in `src/data/projects.json` with your real projects (and add real thumbnail images to `public/`).
+- [ ] Verify/adjust the work history in `src/data/experience.ts` (dates, company names, bullet points).
+- [ ] Replace the placeholder education line in `src/pages/about/AboutPage.tsx`.
+- [ ] Swap `public/logo.jpg` for your preferred headshot/avatar if desired.
+- [ ] Update the domain in `public/sitemap.xml` and `public/robots.txt` once your real domain is live (currently a placeholder `ravibhushankumar.dev`).
 
-## Build & Preview
+## Project structure
 
-- Create a production build:
-
-```bash
-npm run build
-```
-
-- Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-- `src/`
-  - `assets/` — static images and media
-  - `components/` — reusable UI components
-  - `data/` — local data files such as `projects.json`
-  - `hooks/` — custom React hooks
-  - `layouts/` — layout components and wrappers
-  - `pages/` — page-level views for the app
-  - `routes/` — route definitions and navigation setup
-  - `services/` — API client and service utilities
-  - `types/` — TypeScript interface/type definitions
-- `public/` — static public assets served by Vite
-- `package.json` — npm scripts and dependencies
-- `tsconfig.*.json` — TypeScript configuration files
-- `vite.config.ts` — Vite build and dev server config
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/data/` — content-as-code: `site.ts` (contact/social links), `experience.ts` (work history, shared by Home + About), `projects.json` (project list)
+- `src/components/` — `common/Navbar`, `ui/Button`, `projects/ProjectGrid`, `experiance/Experiance`
+- `src/pages/` — `home`, `about`, `projects`, `contact`
+- `src/layouts/main/MainLayout.tsx` — shared header/footer shell
+- `public/` — static assets, `robots.txt`, `sitemap.xml`

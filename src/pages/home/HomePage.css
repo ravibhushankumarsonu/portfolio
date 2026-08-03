@@ -1,72 +1,61 @@
 .home-hero {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6rem 0 5rem;
 }
-
-.hero-container {
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
   align-items: center;
-  width: 100%;
+  gap: 3rem;
   flex-wrap: wrap;
 }
+.hero-copy {
+  flex: 1 1 480px;
+}
+.hero-copy .eyebrow {
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.hero-copy h1 { margin-bottom: 0.9rem; }
+.hero-copy h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.hero-copy p.lede {
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 2rem;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.hero-portrait {
+  flex: 0 0 220px;
+}
+.hero-portrait img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
 
-.hero-image-column {
-  flex: 0 0 200px;
+.projects-footer,
+.section-footer {
   display: flex;
   justify-content: center;
 }
 
-.hero-image {
-  width: 250px;
-  border-radius: 8px;
-}
-
-.hero-content-column {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.home-projects-section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-experience-section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .hero-image-column {
-    flex: 0 0 150px;
-  }
-
-  .hero-image {
-    width: 150px;
-  }
-
-  .hero-container {
-    gap: 1rem;
-  }
+@media (max-width: 720px) {
+  .hero-inner { flex-direction: column-reverse; text-align: left; }
+  .hero-portrait { flex: 0 0 auto; }
+  .hero-portrait img { width: 160px; height: 160px; }
 }

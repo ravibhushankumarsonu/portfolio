@@ -20,8 +20,6 @@ export function useApi<T = unknown>(url: string | null, config?: ApiRequestConfi
 
     let cancelled = false
 
-    setState(prev => ({ ...prev, loading: true, error: null }))
-
     apiRequest<T>(url, config)
       .then(data => {
         if (!cancelled) {

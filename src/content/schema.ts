@@ -74,6 +74,18 @@ export type SiteMeta = {
   resumeUrl: string
   /** Portrait/avatar path under public/. */
   avatar: string
+  /**
+   * How email links open. `gmail` sends visitors to Gmail's web compose
+   * window; `mailto` hands off to whatever mail app they have registered.
+   */
+  emailLinkMode?: 'gmail' | 'mailto'
+
+  // --- Derived by the content loader; not written in site.md ---
+
+  /** Ready-to-use email href, built according to `emailLinkMode`. */
+  emailHref: string
+  /** Ready-to-use `tel:` href with formatting stripped. */
+  phoneHref: string
 }
 
 // ---------------------------------------------------------------------------

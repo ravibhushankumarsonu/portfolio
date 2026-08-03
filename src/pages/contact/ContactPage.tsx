@@ -20,9 +20,11 @@ type ResolvedItem = {
 function resolveItem(item: ContactItem, site: SiteMeta): ResolvedItem {
   switch (item.type) {
     case 'email':
-      return { text: site.email, href: `mailto:${site.email}` }
+      // emailHref honours site.md's emailLinkMode (Gmail compose by default),
+      // so it may leave the site — open it in a new tab.
+      return { text: site.email, href: site.emailHref, external: true }
     case 'phone':
-      return { text: site.phone, href: `tel:${site.phone.replace(/[^+0-9]/g, '')}` }
+      return { text: site.phone, href: site.phoneHref }
     case 'location':
       return { text: site.location, muted: true }
     case 'link':

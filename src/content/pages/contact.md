@@ -33,8 +33,7 @@ columns:
             value: Open to interesting full-time and consulting opportunities.
 
 note: >-
-  Prefer a different channel? Message me on LinkedIn or open an issue on one of
-  my GitHub projects.
+  Prefer a different channel? Message me on LinkedIn or Whatsapp.
 ---
 
 Recruiter, collaborator, or just want to say hello — pick whichever channel is

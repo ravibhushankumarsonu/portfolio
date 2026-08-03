@@ -72,6 +72,34 @@ const SITE_SLUG = 'site'
 const SITE_TOKEN = /\{\{\s*site\.([a-zA-Z]+)\s*\}\}/g
 
 /**
+ * Gmail's web compose window. Visitors land in their signed-in Gmail account
+ * with the recipient filled in, instead of the browser handing off to whatever
+ * desktop mail client happens to be registered.
+ */
+function gmailCompose(email: string): string {
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
+}
+
+/**
+ * Adds href fields computed from site.md.
+ *
+ * Content files reference `{{site.emailHref}}` rather than spelling out a URL
+ * scheme, so switching every email link on the site between Gmail and the
+ * visitor's mail app is a one-line change in site.md.
+ */
+function withDerivedHrefs(site: Record<string, unknown>): Record<string, unknown> {
+  const email = String(site.email ?? '')
+  const phone = String(site.phone ?? '')
+
+  return {
+    ...site,
+    emailHref:
+      site.emailLinkMode === 'mailto' ? `mailto:${email}` : gmailCompose(email),
+    phoneHref: `tel:${phone.replace(/[^+0-9]/g, '')}`,
+  }
+}
+
+/**
  * Replaces `{{site.*}}` placeholders anywhere in a document — frontmatter
  * strings, nested lists, and the rendered body alike.
  *
@@ -132,8 +160,12 @@ function read<T>(slug: string): Promise<ContentDocument<T>> {
   const promise = load()
     .then(async (raw) => {
       const doc = parseDocument<T>(slug, raw)
-      // site.md defines the tokens, so it can't reference them itself.
-      if (slug === SITE_SLUG) return doc
+
+      // site.md defines the tokens, so it can't reference them itself. It does
+      // gain the derived hrefs, so pages reading it get them too.
+      if (slug === SITE_SLUG) {
+        return { ...doc, meta: withDerivedHrefs(doc.meta as Record<string, unknown>) as T }
+      }
 
       const site = await read<Record<string, unknown>>(SITE_SLUG)
       return applySite(doc, site.meta)

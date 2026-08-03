@@ -20,8 +20,9 @@ actions:
     variant: outline
     external: true
   - label: Email me
-    href: "mailto:{{site.email}}"
+    href: "{{site.emailHref}}"
     variant: primary
+    external: true
 
 # Links in the footer.
 footer:
@@ -32,7 +33,8 @@ footer:
     href: "{{site.linkedIn}}"
     external: true
   - label: Email
-    href: "mailto:{{site.email}}"
+    href: "{{site.emailHref}}"
+    external: true
 ---
 
 Nav bar and footer wiring. Add, remove, or reorder links here — no component

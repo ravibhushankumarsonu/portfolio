@@ -178,12 +178,12 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 1.75rem;
 }
-.navbar-links a {
+.navbar-links a:not(.btn) {
   color: var(--text);
   font-weight: 500;
   font-size: 0.95rem;
 }
-.navbar-links a:hover { color: var(--accent-dark); }
+.navbar-links a:not(.btn):hover { color: var(--accent-dark); }
 .navbar-links .navbar-cta {
   margin-left: 0.25rem;
 }

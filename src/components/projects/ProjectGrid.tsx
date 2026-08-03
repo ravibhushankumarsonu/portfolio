@@ -1,36 +1,44 @@
 import type { FC } from 'react'
 import './ProjectGrid.css'
-import type { Project } from '../../types/project'
+import type { ContentDocument, ProjectMeta, UiMeta } from '../../content/schema'
+import Markdown from '../ui/Markdown'
 
-type Props = {
-  projects: Project[]
+type ProjectGridProps = {
+  projects: ContentDocument<ProjectMeta>[]
+  /** Link and empty-state labels, from ui.md. */
+  labels: Pick<UiMeta, 'projectsEmpty' | 'projectLive' | 'projectRepo'>
 }
 
-const ProjectCard: FC<{ project: Project }> = ({ project }) => {
+type ProjectCardProps = {
+  project: ContentDocument<ProjectMeta>
+  labels: Pick<UiMeta, 'projectLive' | 'projectRepo'>
+}
+
+const ProjectCard: FC<ProjectCardProps> = ({ project, labels }) => {
+  const { title, thumbnail, tags, url, repo } = project.meta
+
   return (
     <article className="project-card">
-      {project.thumbnail && (
-        <img src={project.thumbnail} alt={project.title} className="project-thumb" />
-      )}
+      {thumbnail && <img src={thumbnail} alt={title} className="project-thumb" />}
       <div className="project-body">
-        <h3>{project.title}</h3>
-        <p className="project-desc">{project.description}</p>
-        <div className="project-meta">
-          {project.tags?.map((t) => (
-            <span key={t} className="tag-pill">
-              {t}
-            </span>
+        <h3>{title}</h3>
+        <Markdown html={project.html} className="project-desc prose" />
+        <ul className="pill-list">
+          {tags?.map((tag) => (
+            <li key={tag} className="pill">
+              {tag}
+            </li>
           ))}
-        </div>
+        </ul>
         <div className="project-links">
-          {project.url && (
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              Live →
+          {url && (
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              {labels.projectLive}
             </a>
           )}
-          {project.repo && (
-            <a href={project.repo} target="_blank" rel="noopener noreferrer">
-              Repo →
+          {repo && (
+            <a href={repo} target="_blank" rel="noopener noreferrer">
+              {labels.projectRepo}
             </a>
           )}
         </div>
@@ -39,15 +47,16 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
   )
 }
 
-const ProjectGrid: FC<Props> = ({ projects }) => {
-  if (!projects || projects.length === 0) {
-    return <p className="project-empty">No projects to show yet.</p>
+/** Presentational — projects come from the projects/ content collection. */
+const ProjectGrid: FC<ProjectGridProps> = ({ projects, labels }) => {
+  if (projects.length === 0) {
+    return <p className="project-empty">{labels.projectsEmpty}</p>
   }
 
   return (
     <div className="project-grid">
-      {projects.map((p) => (
-        <ProjectCard project={p} key={p.id} />
+      {projects.map((project) => (
+        <ProjectCard key={project.slug} project={project} labels={labels} />
       ))}
     </div>
   )

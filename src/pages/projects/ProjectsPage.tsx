@@ -1,20 +1,37 @@
 import type { FC } from 'react'
+import './ProjectsPage.css'
 import ProjectGrid from '../../components/projects/ProjectGrid'
-import useProjects from '../../hooks/useProjects'
+import ContentBoundary from '../../components/ui/ContentBoundary'
+import Markdown from '../../components/ui/Markdown'
+import { useProjects, useProjectsPageContent, useUi } from '../../hooks/useContent'
 
+/**
+ * Container: reads content and hands it to presentational components.
+ * Every visible string originates in src/content/pages/projects.md.
+ */
 const ProjectsPage: FC = () => {
+  const page = useProjectsPageContent()
   const { projects, loading, error } = useProjects()
+  const ui = useUi().data?.meta
 
   return (
-    <section className="container" style={{ paddingTop: '4rem', paddingBottom: '5rem' }}>
-      <h1>Projects</h1>
-      <p className="muted" style={{ marginTop: '0.5rem', maxWidth: '60ch' }}>
-        A selection of things I've built and shipped.
-      </p>
+    <section className="container projects-page">
+      <ContentBoundary state={page} loadingLabel={ui?.loading}>
+        {(doc) => (
+          <>
+            {doc.meta.eyebrow && <span className="section-eyebrow">{doc.meta.eyebrow}</span>}
+            <h1>{doc.meta.heading}</h1>
+            <Markdown html={doc.html} className="projects-intro prose" />
+          </>
+        )}
+      </ContentBoundary>
 
-      {loading && <p className="muted">Loading projects…</p>}
-      {error && <p style={{ color: '#dc2626' }}>Error: {error}</p>}
-      {projects && <ProjectGrid projects={projects} />}
+      <ContentBoundary
+        state={{ data: projects, loading, error }}
+        loadingLabel={ui?.loading}
+      >
+        {(items) => (ui ? <ProjectGrid projects={items} labels={ui} /> : null)}
+      </ContentBoundary>
     </section>
   )
 }

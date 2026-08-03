@@ -1,41 +1,59 @@
 import type { FC } from 'react'
 import { useState } from 'react'
-import { site, mailtoHref } from '../../data/site'
+import './Navbar.css'
+import type { ActionItem, LinkItem } from '../../content/schema'
+import Button from '../ui/Button'
 
-const Navbar: FC = () => {
+type NavbarProps = {
+  brand: string
+  links: LinkItem[]
+  actions: ActionItem[]
+  /** Screen-reader label for the mobile toggle, from ui.md. */
+  toggleLabel: string
+}
+
+/** Presentational — every label and href comes from navigation.md. */
+const Navbar: FC<NavbarProps> = ({ brand, links, actions, toggleLabel }) => {
   const [open, setOpen] = useState(false)
-
   const close = () => setOpen(false)
 
   return (
     <header className="navbar">
       <div className="navbar-container">
         <a href="/" className="navbar-brand">
-          {site.name}
+          {brand}
         </a>
 
         <nav className={`navbar-links ${open ? 'open' : ''}`}>
-          <a href="/#projects" onClick={close}>Projects</a>
-          <a href="/#experience" onClick={close}>Experience</a>
-          <a href="/about" onClick={close}>About</a>
-          <a href="/#contact" onClick={close}>Contact</a>
-          <a
-            className="btn btn-outline btn-sm navbar-cta"
-            href={site.linkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-          >
-            LinkedIn
-          </a>
-          <a className="btn btn-primary btn-sm navbar-cta" href={mailtoHref} onClick={close}>
-            Email me
-          </a>
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={close}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {link.label}
+            </a>
+          ))}
+
+          {actions.map((action) => (
+            <Button
+              key={action.href}
+              href={action.href}
+              variant={action.variant ?? 'primary'}
+              size="sm"
+              className="navbar-cta"
+              onClick={close}
+              {...(action.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {action.label}
+            </Button>
+          ))}
         </nav>
 
         <button
           className="navbar-toggle"
-          aria-label="Toggle navigation menu"
+          aria-label={toggleLabel}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >

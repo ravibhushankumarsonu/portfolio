@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, ReactNode } from 'react'
+import './Button.css'
 
 type Variant = 'primary' | 'outline' | 'ghost'
 

@@ -11,18 +11,16 @@ education:
 
 skillsHeading: Skills
 skills:
+  - AI
+  - Go
   - Java
   - Python
-  - Scala
   - SQL
   - System Design
   - Distributed Systems
   - Microservices
   - REST APIs
-  - Big Data Ecosystem
-  - Apache Druid
-  - ClickHouse
-  - MapReduce
+  - Distributed Database.
   - CI/CD
   - Agile Methodologies
 
@@ -31,7 +29,7 @@ contactNote: See the [Contact](/contact) page for details.
 ---
 
 I'm a software engineer with 8+ years designing and building high-performance
-systems that enhance business productivity. My work centres on system design,
+systems that enhance business productivity. My work centres on security engeering, system design,
 distributed systems, microservices, databases, and CI/CD pipelines.
 
 At Flipkart I've led taxation and accounting platforms, redesigned invoicing

@@ -4,6 +4,11 @@ title: Senior Software Engineer
 company: Flipkart
 location: Bangalore, India
 email: ravibhushankumarsonu@gmail.com
+# How every email link on the site opens:
+#   gmail  — Gmail's web compose window (works wherever the visitor is signed in)
+#   mailto — hand off to the visitor's default desktop mail app
+# Content files use {{site.emailHref}}, so this one line switches them all.
+emailLinkMode: gmail
 phone: "+91 8603436230"
 linkedIn: https://www.linkedin.com/in/ravibhushankumarsonu
 github: https://github.com/ravibhushankumarsonu

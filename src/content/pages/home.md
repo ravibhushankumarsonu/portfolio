@@ -12,11 +12,12 @@ hero:
       href: "#projects"
       variant: primary
     - label: Email me
-      href: "mailto:{{site.email}}"
+      href: "{{site.emailHref}}"
       variant: outline
-    - label: Résumé
+      external: true
+    - label: Resume
       href: "{{site.resumeUrl}}"
-      variant: ghost
+      variant: outline
       external: true
 
 projects:
@@ -40,8 +41,9 @@ contact:
   heading: Reach out any time — recruiters and collaborators welcome.
   actions:
     - label: Send me an email
-      href: "mailto:{{site.email}}"
+      href: "{{site.emailHref}}"
       variant: primary
+      external: true
     - label: LinkedIn
       href: "{{site.linkedIn}}"
       variant: outline

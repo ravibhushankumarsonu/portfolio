@@ -16,29 +16,11 @@
   flex: 1 1 480px;
 }
 
-.hero-eyebrow {
-  display: block;
-  margin-bottom: var(--space-3);
-  color: var(--color-accent-strong);
-  font-size: var(--text-base);
-  font-weight: var(--weight-bold);
-}
+/* .hero-eyebrow, .hero-subheadline and .hero-lede live in utilities.css —
+   the photography hero uses them too. */
 
 .hero-copy h1 {
   margin-bottom: 0.9rem;
-}
-
-.hero-subheadline {
-  margin-bottom: var(--space-5);
-  color: var(--color-muted);
-  font-size: 1.25rem;
-  font-weight: var(--weight-medium);
-}
-
-.hero-lede {
-  max-width: 60ch;
-  margin-bottom: var(--space-8);
-  color: var(--color-muted);
 }
 
 .hero-portrait {

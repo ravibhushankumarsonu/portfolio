@@ -45,3 +45,7 @@ npm run preview   # preview the production build
 - `src/pages/` — `home`, `about`, `projects`, `contact`
 - `src/layouts/main/MainLayout.tsx` — shared header/footer shell
 - `public/` — static assets, `robots.txt`, `sitemap.xml`
+
+
+## References
+- https://marcuss.pro/index.html 

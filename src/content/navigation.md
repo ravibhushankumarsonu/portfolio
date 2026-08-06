@@ -8,6 +8,8 @@ primary:
     href: /#projects
   - label: Experience
     href: /#experience
+  - label: Photography
+    href: /photo
   - label: About
     href: /about
   - label: Contact

@@ -4,6 +4,7 @@ import HomePage from '../pages/home/HomePage'
 import AboutPage from '../pages/about/AboutPage'
 import ProjectsPage from '../pages/projects/ProjectsPage'
 import ContactPage from '../pages/contact/ContactPage'
+import PhotoPage from '../pages/photo/PhotoPage'
 
 // For now this is a simple manual router placeholder.
 // Later you can swap this for react-router or another router.
@@ -24,6 +25,9 @@ const AppRoutes: FC = () => {
       break
     case path.startsWith('/contact'):
       PageComponent = ContactPage
+      break
+    case path.startsWith('/photo'):
+      PageComponent = PhotoPage
       break
     default:
       PageComponent = HomePage

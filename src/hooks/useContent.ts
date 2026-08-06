@@ -18,6 +18,7 @@ export const useNavigation = () => useAsync(content.navigation, [])
 export const useHomeContent = () => useAsync(content.home, [])
 export const useAboutContent = () => useAsync(content.about, [])
 export const useContactContent = () => useAsync(content.contact, [])
+export const usePhotoContent = () => useAsync(content.photo, [])
 export const useProjectsPageContent = () => useAsync(content.projectsPage, [])
 export const useExperience = () => useAsync(content.experience, [])
 

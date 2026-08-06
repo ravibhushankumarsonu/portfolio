@@ -45,6 +45,28 @@
   margin-top: var(--space-8);
 }
 
+/* Hero type — shared by the home and photography heroes */
+.hero-eyebrow {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent-strong);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+}
+
+.hero-subheadline {
+  margin-bottom: var(--space-5);
+  color: var(--color-muted);
+  font-size: 1.25rem;
+  font-weight: var(--weight-medium);
+}
+
+.hero-lede {
+  max-width: 60ch;
+  margin-bottom: var(--space-8);
+  color: var(--color-muted);
+}
+
 /* Text */
 .muted {
   color: var(--color-muted);

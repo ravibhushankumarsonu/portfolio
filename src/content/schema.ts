@@ -55,6 +55,12 @@ export type UiMeta = {
   projectRepo: string
   /** Screen-reader label for the mobile nav button. */
   navToggle: string
+  photosEmpty: string
+  /** Screen-reader labels for the photo lightbox controls. */
+  lightboxOpen: string
+  lightboxClose: string
+  lightboxPrev: string
+  lightboxNext: string
 }
 
 // ---------------------------------------------------------------------------
@@ -181,6 +187,45 @@ export type ContactMeta = {
 export type ProjectsPageMeta = {
   heading: string
   eyebrow?: string
+}
+
+// ---------------------------------------------------------------------------
+// pages/photo.md — the photography home page at /photo
+// ---------------------------------------------------------------------------
+
+/** One photograph. `caption` and `location` show in the lightbox. */
+export type PhotoItem = {
+  src: string
+  alt: string
+  caption?: string
+  location?: string
+}
+
+/** A body of work — cover image plus a line about it. */
+export type PhotoCollection = {
+  title: string
+  description: string
+  cover: string
+  alt: string
+  /** Short badge, e.g. `18 frames`. */
+  count?: string
+}
+
+export type PhotoMeta = {
+  hero: {
+    eyebrow: string
+    headline: string
+    subheadline: string
+    actions: ActionItem[]
+    /** Images in the hero collage, first one rendered large. */
+    mosaic: PhotoItem[]
+  }
+  collections: SectionHeader & { items: PhotoCollection[] }
+  gallery: SectionHeader & { items: PhotoItem[] }
+  contact: SectionHeader & {
+    note?: string
+    actions: ActionItem[]
+  }
 }
 
 // ---------------------------------------------------------------------------

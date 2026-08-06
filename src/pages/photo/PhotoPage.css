@@ -1,0 +1,120 @@
+.photo-hero {
+  padding: var(--space-12) 0 var(--space-20);
+}
+
+.photo-hero-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.photo-hero-copy {
+  flex: 1 1 420px;
+}
+
+.photo-hero-copy h1 {
+  margin-bottom: 0.9rem;
+}
+
+/*
+ * Collage: one tall frame beside a stack of squares. Sized in fractions so the
+ * shape holds whatever the images' own dimensions turn out to be.
+ */
+.photo-mosaic {
+  display: grid;
+  flex: 1 1 380px;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--space-3);
+  max-width: 520px;
+}
+
+.photo-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.photo-mosaic-lead {
+  grid-row: span 2;
+  min-height: 340px;
+}
+
+/* Collections */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--color-bg-alt);
+}
+
+.collection-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: var(--space-5);
+}
+
+.collection-body h3 {
+  margin: 0;
+}
+
+.collection-body p {
+  font-size: var(--text-base);
+}
+
+.collection-body .pill {
+  margin-top: auto;
+}
+
+.photo-contact-note {
+  max-width: 52ch;
+  margin: 0 auto var(--space-6);
+}
+
+@media (max-width: 720px) {
+  .photo-hero-inner {
+    flex-direction: column-reverse;
+  }
+
+  .photo-mosaic {
+    width: 100%;
+    grid-template-rows: 160px 160px;
+  }
+
+  .photo-mosaic-lead {
+    min-height: 0;
+  }
+}

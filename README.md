@@ -21,6 +21,23 @@ npm run build     # production build -> dist/
 npm run preview   # preview the production build
 ```
 
+## Docker
+
+A multi-stage build (Node 22 builds the site, then the unprivileged
+`nginx-alpine` image serves `dist/` as a non-root user on port 8080). The final
+image is about 22MB compressed.
+
+```bash
+docker build -t portfolio:latest .                       # build the image
+docker run -d --name portfolio -p 8080:8080 portfolio:latest   # http://localhost:8080
+docker logs -f portfolio                                 # follow logs
+docker stop portfolio && docker rm portfolio             # stop and remove
+```
+
+The nginx config lives in `docker/nginx.conf`. It sends any unknown path to
+`index.html` so client-side routes like `/about` keep working, and it caches
+`/assets/*` forever, matching `netlify.toml`.
+
 ## Deployment (Cloudflare Pages, recommended)
 
 1. Push this repo to GitHub (already done: `ravibhushankumarsonu/portfolio`).
